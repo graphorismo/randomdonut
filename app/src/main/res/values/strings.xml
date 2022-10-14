@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">randomdonut</string>
+    <string name="placeholder">Here will be a donut description</string>
 </resources>
