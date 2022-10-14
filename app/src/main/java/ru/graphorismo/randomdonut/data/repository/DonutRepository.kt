@@ -2,9 +2,10 @@ package ru.graphorismo.randomdonut.data.repository
 
 import retrofit2.Call
 import retrofit2.Retrofit
-import retrofit2.converter.scalars.ScalarsConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 import ru.graphorismo.randomdonut.data.api.DonutAPI
+import ru.graphorismo.randomdonut.data.model.DonutData
 
 class DonutRepository {
 
@@ -13,12 +14,12 @@ class DonutRepository {
     init {
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("http://10.0.2.2:8100/")
-            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
             .build()
         donutApi = retrofit.create<DonutAPI>()
     }
 
-    suspend fun getRandomDonut(): String {
+    suspend fun getRandomDonut(): DonutData {
         return donutApi.getRandomDonut()
     }
 

@@ -6,5 +6,5 @@ import ru.graphorismo.randomdonut.data.model.DonutData
 
 public interface DonutAPI {
     @GET("/randomdonut")
-    suspend fun getRandomDonut(): String
+    suspend fun getRandomDonut(): DonutData
 }
